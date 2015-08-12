@@ -1,0 +1,20 @@
+<div id="navbar"></div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div id="main"></div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    BackboneDemo.CURRENT_USER = {
+      username: "<%= "ryan@appacademy.io" %>"
+    };
+
+    // You could also do something like this (careful, the ERB tag has been escaped):
+    // BackboneDemo.CURRENT_USER = JSON.parse("<%%= current_user.to_json %>");
+
+    BackboneDemo.initialize();
+  });
+</script>
