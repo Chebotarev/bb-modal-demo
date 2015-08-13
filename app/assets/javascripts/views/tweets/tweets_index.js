@@ -10,7 +10,10 @@ BackboneDemo.Views.TweetsIndex = Backbone.View.extend({
   },
 
   composeTweet: function () {
-    var formView = new BackboneDemo.Views.TweetForm();
+    var formView = new BackboneDemo.Views.TweetForm({
+      model: new BackboneDemo.Models.Tweet(),
+      collection: this.collection
+    });
     $('body').append(formView.render().$el);
   },
 
