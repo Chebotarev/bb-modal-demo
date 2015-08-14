@@ -3,6 +3,7 @@ BackboneDemo.Views.TweetForm = Backbone.View.extend({
 
   events: {
     'click .m-background': 'remove',
+    'click .close-modal': 'remove',
     'submit form': 'createTweet'
   },
 
@@ -12,10 +13,17 @@ BackboneDemo.Views.TweetForm = Backbone.View.extend({
 
   createTweet: function (event) {
     event.preventDefault();
+    var formData = $(event.currentTarget).serializeJSON().tweet;
+    this.model.save(formData, {
+      success: function (tweet) {
+        this.collection.add(tweet);
+        this.remove();
+      }.bind(this)
+    });
   },
 
   handleKey: function (event) {
-    if (event.keyCode === 27) {
+    if (event.keyCode === 27 || event.which === 27) {
       this.remove();
     }
   },

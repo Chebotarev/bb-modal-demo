@@ -28,9 +28,10 @@
 
 .m-content {
   background-color: beige;
-  position: relative;
+  position: absolute;
+  top: 25%;
+  left: 25%;
   z-index: 2;
-  margin: 0 auto;
   width: 40%;
   padding: 1pc;
   border: 1px solid;
