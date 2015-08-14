@@ -5,6 +5,19 @@ BackboneDemo.Views.TweetsIndex = Backbone.View.extend({
     this.listenTo(this.collection, 'sync', this.render);
   },
 
+  events: {
+    'click .btn-compose': "composeTweet"
+  },
+
+  composeTweet: function () {
+    modal = new BackboneDemo.Views.TweetForm({
+      collection: this.collection,
+      model: new BackboneDemo.Models.Tweet()
+    });
+    $('body').append(modal.$el);
+    modal.render();
+  },
+
   render: function () {
     var content = this.template();
     this.$el.html(content);
